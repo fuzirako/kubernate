@@ -21,7 +21,7 @@ pipeline:
             os: Linux
             arch: Amd64
           runtime:
-            type: Docker
+            type: Cloud
             spec: {}
           execution:
             steps:
@@ -34,3 +34,7 @@ pipeline:
                     command: ls -la
         tags:
           kubernetes: ""
+        delegateSelectors:
+          - docker-delegate
+        when:
+          pipelineStatus: All
