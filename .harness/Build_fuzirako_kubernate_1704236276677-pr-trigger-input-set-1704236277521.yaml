@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_fuzirako_kubernate_1704236276677-pr-trigger-input-set
+  identifier: Build_fuzirako_kubernate_1704236276677prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_fuzirako_kubernate_1704236276677
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
