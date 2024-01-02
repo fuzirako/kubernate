@@ -34,7 +34,7 @@ pipeline:
                     command: ls -la
         tags:
           kubernetes: ""
-        delegateSelectors:
-          - docker-delegate
         when:
           pipelineStatus: All
+        delegateSelectors:
+          - helm-delegate
