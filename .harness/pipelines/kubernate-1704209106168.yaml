@@ -10,49 +10,27 @@ pipeline:
         connectorRef: account.Github
         repoName: fuzirako/kubernate
   stages:
-    - parallel:
-        - stage:
-            identifier: build
-            name: build
-            spec:
-              cloneCodebase: true
-              execution:
-                steps:
-                  - step:
-                      identifier: echo
-                      name: echo
-                      spec:
-                        command: echo hello world
-                      timeout: ""
-                      type: Run
-              platform:
-                os: Linux
-                arch: Amd64
-              runtime:
-                type: Docker
-                spec: {}
-            type: CI
-        - stage:
-            name: build kubernetes
-            identifier: build_kubernetes
-            description: ""
-            type: CI
-            spec:
-              cloneCodebase: true
-              platform:
-                os: Linux
-                arch: Amd64
-              runtime:
-                type: Docker
-                spec: {}
-              execution:
-                steps:
-                  - step:
-                      type: Run
-                      name: Run_1
-                      identifier: Run_1
-                      spec:
-                        shell: Sh
-                        command: ls -la
-            tags:
-              kubernetes: ""
+    - stage:
+        name: build kubernetes
+        identifier: build_kubernetes
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Sh
+                    command: ls -la
+        tags:
+          kubernetes: ""
